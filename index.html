@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain For Sale</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Limelight for headers, Poppins for body -->
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a0505;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232b0a0a' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cinema-font {
+            font-family: 'Limelight', cursive;
+        }
+
+        /* Marquee Board Effect */
+        .marquee-board {
+            box-shadow: 
+                0 0 20px #ff0000,
+                inset 0 0 20px #000;
+            border: 4px solid #4a0000;
+        }
+
+        /* Flashing Bulbs Animation */
+        @keyframes flash {
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px #fff, 0 0 20px #ffd700; }
+            50% { opacity: 0.3; box-shadow: none; }
+        }
+
+        .bulb {
+            width: 12px;
+            height: 12px;
+            background-color: #ffeb3b;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            animation: flash 2s infinite alternate;
+        }
+
+        .bulb:nth-child(even) { animation-delay: 0.5s; }
+        .bulb:nth-child(3n) { animation-delay: 1s; }
+
+        /* Spotlight Effect */
+        .spotlight {
+            background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to bottom, #cfc09f 22%, #634f2c 24%, #cfc09f 26%, #cfc09f 27%, #ffecb3 40%, #3a2c0f 78%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            color: #fff; 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center text-white relative overflow-hidden">
+
+    <!-- Ambient Spotlight -->
+    <div class="absolute inset-0 spotlight z-0"></div>
+
+    <!-- Main Container -->
+    <div class="z-10 w-full max-w-4xl px-4 text-center">
+        
+        <!-- Marquee Top -->
+        <div class="bg-red-900 rounded-t-xl p-4 border-b-8 border-yellow-600 relative overflow-hidden shadow-2xl">
+            <!-- Lights Top -->
+            <div class="absolute top-2 left-0 w-full flex justify-around px-2">
+                <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+                <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+                <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+            </div>
+            
+            <h1 class="cinema-font text-5xl md:text-7xl mt-6 tracking-wider text-white uppercase drop-shadow-lg">
+                NOW SHOWING
+            </h1>
+        </div>
+
+        <!-- Main Screen / Content Area -->
+        <div class="marquee-board bg-black p-8 md:p-12 relative">
+            
+            <div class="border-2 border-yellow-600/30 p-8 rounded-lg">
+                <p class="text-yellow-500 tracking-[0.2em] uppercase text-sm mb-4">The Premium Feature Presentation</p>
+                
+                <!-- Dynamic Domain Name (JavaScript will fill this, or hardcode it) -->
+                <h2 id="domain-name" class="cinema-font text-4xl md:text-6xl gold-gradient-text mb-8 break-words">
+                    YOURDOMAIN.COM
+                </h2>
+
+                <div class="flex flex-col items-center gap-6">
+                    <p class="text-gray-300 max-w-lg text-lg">
+                        This exclusive digital real estate is currently available for acquisition. 
+                        Secure this box-office hit for your next project.
+                    </p>
+
+                    <!-- Price Tag (Optional) -->
+                    <div class="bg-red-900/50 border border-red-600 px-6 py-2 rounded-full transform -rotate-2">
+                        <span class="text-red-200 font-bold tracking-widest">FOR SALE / MAKE AN OFFER</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="mt-12 flex flex-col md:flex-row justify-center gap-4">
+                    <a href="mailto:contact@example.com?subject=Inquiry about Domain" class="group relative px-8 py-4 bg-yellow-600 hover:bg-yellow-500 text-black font-bold rounded shadow-[0_0_15px_rgba(234,179,8,0.5)] transition-all overflow-hidden">
+                        <span class="relative z-10 flex items-center gap-2">
+                            <i class="fa-solid fa-envelope"></i> EMAIL OFFER
+                        </span>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                    </a>
+
+                    <button onclick="copyToClipboard()" class="group px-8 py-4 border-2 border-white/20 hover:border-yellow-500 hover:text-yellow-500 text-gray-300 font-bold rounded transition-all">
+                        <i class="fa-solid fa-copy mr-2"></i> COPY CONTACT
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marquee Bottom -->
+        <div class="bg-red-900 rounded-b-xl p-3 border-t-8 border-yellow-600 relative shadow-2xl">
+            <!-- Lights Bottom -->
+            <div class="absolute bottom-2 left-0 w-full flex justify-around px-2">
+                <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+                <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+                <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+            </div>
+            <p class="mt-2 text-red-200 text-sm opacity-80">© 2024 Premium Domains • All Rights Reserved</p>
+        </div>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-white text-black px-6 py-3 rounded-full shadow-2xl opacity-0 pointer-events-none transition-opacity duration-300 flex items-center gap-2 z-50">
+        <i class="fa-solid fa-check-circle text-green-600"></i>
+        <span>Email copied to clipboard!</span>
+    </div>
+
+    <script>
+        // CONFIGURATION: CHANGE THESE VALUES
+        const CONFIG = {
+            domainName: "allucineplex.com", // Type your domain here
+            email: "neelaashishkumar@gmail.com"         // Type your email here
+        };
+
+        // Initialize content
+        document.getElementById('domain-name').innerText = window.location.hostname === "" ? CONFIG.domainName : window.location.hostname;
+        
+        // Update mailto link dynamically
+        const mailButton = document.querySelector('a[href^="mailto:"]');
+        mailButton.href = `mailto:${CONFIG.email}?subject=Inquiry about ${CONFIG.domainName}`;
+
+        function copyToClipboard() {
+            // Using modern clipboard API
+            navigator.clipboard.writeText(CONFIG.email).then(() => {
+                showToast();
+            }).catch(err => {
+                // Fallback for iframes or older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = CONFIG.email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast();
+            });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
